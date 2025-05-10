@@ -5,9 +5,9 @@ const prisma = new PrismaClient();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const loggerMiddleware = require("./middlewares/logger");
-const errorHandler = require("./middlewares/logger");
-const authenticateToken = require("./middlewares/auth");
+const loggerMiddleware = require("./src/middlewares/logger");
+const errorHandler = require("./src/middlewares/logger");
+const authenticateToken = require("./src/middlewares/auth");
 
 const bodyParser = require("body-parser");
 
@@ -18,7 +18,6 @@ app.use(loggerMiddleware);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
-console.log(PORT);
 
 app.get("/", (req, res) => {
   res.send(`
